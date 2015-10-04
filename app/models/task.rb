@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
   belongs_to :list
 
   def self.completed_tasks
-    where(status: 'complete')
+    where(status: 'completed')
   end
 
   def self.current_tasks

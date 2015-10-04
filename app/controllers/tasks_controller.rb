@@ -38,9 +38,18 @@ class TasksController < ApplicationController
   end
 
   def task_complete
+    list
     task = list.tasks.find(params[:id])
     task.update(status: 'completed')
     flash[:notice] = "Task complete"
+    redirect_to lists_path
+  end
+
+  def redo
+    list
+    task = list.tasks.find(params[:id])
+    task.update(status: 'incomplete')
+    flash[:notice] = "Redoing Task"
     redirect_to lists_path
   end
 

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :lists do
     put '/tasks/:id/task_complete', as: :task_complete, to: 'tasks#task_complete'
+    put '/tasks/:id/redo', as: :redo, to: 'tasks#redo'
+    get '/tasks/:id/completed_tasks', as: :completed_tasks, to: 'tasks#completed_tasks'
     resources :tasks, except: [:index]
   end
 end
