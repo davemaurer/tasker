@@ -1,0 +1,15 @@
+<%= render 'partials/topbar' %>
+
+<div class="row">
+  <div class="large-8 columns">
+    <h4>
+      <div class="dash4">Lists</div>
+    </h4>
+    <h5>
+      <% @lists.each do |list| %></h5>
+        <ul>
+          <li><%= link_to list.title, list_path(list) %></li>
+        </ul>
+      <% end %>
+      </div>
+</div>
