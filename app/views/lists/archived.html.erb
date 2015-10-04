@@ -1,4 +1,4 @@
-<%= render 'partials/topbar' %>
+<%= render 'partials/topbar_archive' %>
 
 <div class="row">
   <div class="large-8 columns">
@@ -8,7 +8,8 @@
     <h5>
       <% @lists.each do |list| %></h5>
         <ul>
-          <li><%= link_to list.title, list_path(list) %></li>
+          <li><%= link_to list.title, list_path(list) %>
+          <%= link_to 'Delete', list_path(list), method: :delete, class: "button tiny"  %></li>
         </ul>
       <% end %>
       </div>

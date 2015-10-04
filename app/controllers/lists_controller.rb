@@ -19,11 +19,17 @@ class ListsController < ApplicationController
     @list = current_user.lists.where(list_params).first_or_create
     if current_user && @list.save
       flash[:notice] = "List created!"
-      redirect_to dashboard_path
+      redirect_to lists_path
     else
       flash.now[:notice] = "Please try again"
       render :new
     end
+  end
+
+  def destroy
+    list = List.find(params[:id])
+    list.destroy
+    redirect_to lists_path
   end
 
   private
