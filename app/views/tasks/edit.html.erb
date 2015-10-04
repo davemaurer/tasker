@@ -1,0 +1,18 @@
+<div class="large-6 large-centered columns">
+  <div class="card">
+    <div class="content">
+      <div class="form-card">
+        <%= form_for([@list, @task]) do |f| %>
+          <label for="task_title">Task</label>
+          <%= f.text_field :title %>
+          <label for="task_description">Description</label>
+          <%= f.text_area :description %>
+          <label for="task_duedate">Due Date</label>
+          <%= f.date_field :duedate %>
+          <br>
+          <%= f.submit "Edit", class: "button round small", method: :put %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

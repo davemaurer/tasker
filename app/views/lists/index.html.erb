@@ -2,14 +2,25 @@
 
 <div class="row">
   <div class="large-8 columns">
-    <h4>
+    <h3>
       <div class="dash4">Lists</div>
-    </h4>
-    <h5><% @lists.each do |list| %></h5>
-      <ul>
-        <li><%= link_to list.title, edit_list_path(list) %>
-        <%= link_to 'Archive This', archive_path(list), method: :put, class: "button tiny" %></li>
+    </h3>
+    <% @lists.each do |list| %>
+      <ul class="no-bullet">
+        <li><h4><%= link_to list.title, edit_list_path(list) %>
+        <%= link_to 'Add Task', new_list_task_path(list), class: "button round tiny" %>
+        <%= link_to 'Archive This', archive_path(list), method: :put, class: "button round tiny" %></h4></li>
       </ul>
+        <h5>Tasks for <%= list.title %></h5>
+        <% list.current_tasks.each do |task| %>
+        <ul>
+          <li><%= link_to task.title, edit_list_task_path(list, task) %>
+            <%= link_to "Task Complete", list_task_complete_path(list, task), method: :put, class: "tiny round button" %>
+            <%= link_to "Delete", list_task_path(list, task), method: :delete, class: "tiny round button alert" %>
+          </li>
+        </ul>
+        <br>
+    <% end %>
     <% end %>
   </div>
 </div>

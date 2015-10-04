@@ -11,5 +11,8 @@ Rails.application.routes.draw do
 
   put 'lists/:id/archive', as: :archive, to: 'lists#archive'
 
-  resources :lists
+  resources :lists do
+    put '/tasks/:id/task_complete', as: :task_complete, to: 'tasks#task_complete'
+    resources :tasks, except: [:index]
+  end
 end
