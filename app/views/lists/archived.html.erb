@@ -8,8 +8,8 @@
     <h5>
       <% @lists.each do |list| %></h5>
         <ul>
-          <li><%= link_to list.title, list_path(list) %>
-          <%= link_to 'Delete', list_path(list), method: :delete, class: "button round tiny alert"  %></li>
+          <li><h3><%= list.title %>
+          <%= link_to 'Delete', list_path(list), method: :delete, class: "button round tiny alert"  %></h3></li>
         </ul>
       <% end %>
       </div>

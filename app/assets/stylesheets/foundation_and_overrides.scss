@@ -1545,3 +1545,13 @@ $include-html-global-classes: $include-html-classes;
   color: darkcyan;
   font-weight: 500;
 }
+
+.active-tasks {
+  color: forestgreen;
+  font-weight: 500;
+}
+
+.completed-tasks {
+  color: darkgrey;
+  font-weight: 500;
+}

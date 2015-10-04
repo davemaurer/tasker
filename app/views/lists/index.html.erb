@@ -11,24 +11,27 @@
           <%= link_to 'Add Task', new_list_task_path(list), class: "button round tiny" %>
           <%= link_to 'Archive This', archive_path(list), method: :put, class: "button round tiny" %></h4></li>
       </ul>
-      <h5>Active Tasks for <%= list.title %></h5>
-
-    <% list.current_tasks.each do |task| %>
-      <ul>
-        <li><%= link_to task.title, edit_list_task_path(list, task) %></li>
-        <%= link_to "Task Complete", list_task_complete_path(list, task), method: :put %>
-        - <%= link_to "Delete", list_task_path(list, task), method: :delete %>
-      </ul>
-    <% end %>
-      <br>
-      <h5>Completed Tasks for <%= list.title %></h5>
-      <% list.completed_tasks.each do |task| %>
-        <h5><%= task.title %>
-          <%= link_to "Redo Task", list_redo_path(list, task), method: :put, class: "tiny round button" %>
-          <%= link_to "Delete", list_task_path(list, task), method: :delete, class: "tiny round button alert" %></h5>
-      <% end %>
-    <br>
-    <br>
+      <h5 class="active-tasks">Active Tasks for <%= list.title %>
+        <% list.current_tasks.each do |task| %>
+          <ul>
+            <li><%= link_to task.title, edit_list_task_path(list, task) %></li>
+            <%= link_to "Task Complete", list_task_complete_path(list, task), method: :put %>
+            - <%= link_to "Delete", list_task_path(list, task), method: :delete %>
+          </ul>
+          </h5>
+        <% end %>
+        <div></div>
+        <h5 class="completed-tasks">Completed Tasks for <%= list.title %>
+        <% list.completed_tasks.each do |task| %>
+          <ul>
+            <%= task.title %>
+            <%= link_to "Redo Task", list_redo_path(list, task), method: :put %>
+            - <%= link_to "Delete", list_task_path(list, task), method: :delete %>
+          </ul>
+          </h5>
+        <% end %>
+        <br>
+        <br>
     <% end %>
   </div>
 </div>
