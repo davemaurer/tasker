@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def index
     @lists = List.where(archived: false)
+    @tasks
   end
 
   def archived
