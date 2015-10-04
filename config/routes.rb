@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get '/logout', as: :logout, to: 'sessions#destroy'
 
   get '/dashboard', to: 'dashboard#show'
+
+  resources :lists
 end
