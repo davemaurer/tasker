@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/logout', as: :logout, to: 'sessions#destroy'
 
-  get '/dashboard', to: 'dashboard#show'
+  get '/lists/archived', as: :archived, to: 'lists#archived'
 
   resources :lists
 end

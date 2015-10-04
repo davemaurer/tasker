@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.from_omniauth(oauth_data)
     if user
       session[:user_id] = user.id
-      redirect_to dashboard_path
+      redirect_to lists_path
     else
       redirect_to root_path
     end
