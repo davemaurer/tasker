@@ -26,9 +26,31 @@ class ListsController < ApplicationController
     end
   end
 
+  def edit
+    @list = List.find(params[:id])
+  end
+
+  def update
+    list = List.find(params[:id])
+    if list.update(list_params)
+      flash[:notice] = "List Updated Successfully"
+      redirect_to lists_path
+    else
+      flash.now[:notice] = "Please try again"
+      render :edit
+    end
+  end
+
   def destroy
     list = List.find(params[:id])
     list.destroy
+    redirect_to archived_path
+  end
+
+  def archive
+    list = List.find(params[:id])
+    list.update(archived: true)
+    flash[:notice] = "Your list has been archived"
     redirect_to lists_path
   end
 

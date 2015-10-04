@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   get '/lists/archived', as: :archived, to: 'lists#archived'
 
+  put 'lists/:id/archive', as: :archive, to: 'lists#archive'
+
   resources :lists
 end

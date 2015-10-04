@@ -7,7 +7,8 @@
     </h4>
     <h5><% @lists.each do |list| %></h5>
       <ul>
-        <li><%= link_to list.title, list_path(list) %></li>
+        <li><%= link_to list.title, edit_list_path(list) %>
+        <%= link_to 'Archive This', archive_path(list), method: :put, class: "button tiny" %></li>
       </ul>
     <% end %>
   </div>
