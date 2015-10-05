@@ -15,6 +15,7 @@
         <% list.current_tasks.each do |task| %>
           <ul>
             <li><%= link_to task.title, edit_list_task_path(list, task) %></li>
+            
             <%= link_to "Task Complete", list_task_complete_path(list, task), method: :put %>
             - <%= link_to "Delete", list_task_path(list, task), method: :delete %>
           </ul>
