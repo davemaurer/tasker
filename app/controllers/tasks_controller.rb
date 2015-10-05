@@ -1,4 +1,12 @@
 class TasksController < ApplicationController
+  attr_reader :list, :tag
+
+  def index
+    @list = List.find(params[:list_id])
+    @tag = Tag.find(params[:tag_id])
+    @tasks = tag.tasks.where(list_id: list.id)
+  end
+
   def new
     @list = List.find(params[:list_id])
     @task = Task.new

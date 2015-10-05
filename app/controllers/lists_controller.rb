@@ -9,6 +9,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @task
   end
 
   def new

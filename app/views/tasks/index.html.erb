@@ -1,0 +1,17 @@
+<%= render 'partials/topbar_archive' %>
+<br>
+<div class="row">
+  <div class="large-8 columns">
+    <h3>
+      <div class="dash4">Tasks for <%= @list.title %> with the tag <%= @tag.name %></div>
+    </h3>
+    <br>
+    <ul class="no-bullet">
+      <% @tasks.each do |task| %>
+        <h4>
+          <li><%= task.title %></li>
+        </h4>
+      <% end %>
+    </ul>
+  </div>
+</div>
