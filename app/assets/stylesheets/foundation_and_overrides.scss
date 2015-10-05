@@ -1487,8 +1487,19 @@ $include-html-global-classes: $include-html-classes;
 
 @import 'foundation';
 
+
+
 .top-bar {
   z-index: 10;
+  background-color: goldenrod;
+
+  .top-bar-section li:not(.has-form) a:not(.button) {
+    background: #A42929;
+
+    &:hover {
+      background: darkcyan;
+    }
+  }
 }
 
 .card {
@@ -1525,19 +1536,6 @@ $include-html-global-classes: $include-html-classes;
   }
   .link {
     font-size: 1rem;
-  }
-  .image {
-    position: relative;
-    .title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 1.3rem;
-      color: #fff;
-    }
-    img {
-      border-radius: 2px 2px 0 0;
-    }
   }
 }
 

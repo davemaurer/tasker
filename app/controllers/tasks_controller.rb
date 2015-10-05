@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = list.tasks.where(task_params).first_or_create
+    task = list.tasks.new(task_params)
     if task.save
       flash[:notice] = "Task #{task.title} created"
       redirect_to lists_path
@@ -60,6 +60,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:list_id, :title, :status, :description, :duedate)
+    params.require(:task).permit(:list_id, :title, :status, :description, :duedate, :tag_list)
   end
+
 end

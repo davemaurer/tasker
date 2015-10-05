@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     get '/tasks/:id/completed_tasks', as: :completed_tasks, to: 'tasks#completed_tasks'
     resources :tasks, except: [:index]
   end
+
+  resources :tags
 end
