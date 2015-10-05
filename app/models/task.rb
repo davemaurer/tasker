@@ -2,7 +2,7 @@ class Task < ActiveRecord::Base
   validates_presence_of :title
 
   belongs_to :list
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   def self.completed_tasks
